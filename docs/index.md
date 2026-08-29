@@ -18,4 +18,4 @@ Project Hades is a production-grade API gateway built on Spring Boot 4.1 WebFlux
 - [Configuration Reference](configuration.md)
 - [API Reference](api-reference.md)
 - [Architecture](architecture.md)
-- [GitHub Repository](https://github.com/DeVangSharma/gatekeeper)
+- [GitHub Repository](https://github.com/devang609/project-hades)
