@@ -1,0 +1,28 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  gateway:
+    build: ../gatekeeper-gateway
+    ports:
+      - "${GATEWAY_PORT:-8080}:8080"
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      RATE_LIMIT_DEFAULT: ${RATE_LIMIT_DEFAULT:-100}
+      RATE_LIMIT_WINDOW: ${RATE_LIMIT_WINDOW:-60s}
+    depends_on:
+      redis:
+        condition: service_healthy
+
+volumes:
+  redis-data:

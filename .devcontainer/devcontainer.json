@@ -1,0 +1,28 @@
+{
+  "name": "Project Hades Dev",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": "true"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "postCreateCommand": "docker compose -f docker/docker-compose.yml up -d redis",
+  "forwardPorts": [8080, 8090, 3000, 9090],
+  "portsAttributes": {
+    "8080": { "label": "Gateway" },
+    "8090": { "label": "Admin API" },
+    "3000": { "label": "Grafana" },
+    "9090": { "label": "Prometheus" }
+  }
+}

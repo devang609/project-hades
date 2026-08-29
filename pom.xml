@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.1.1</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>dev.devangsharma</groupId>
+    <artifactId>gatekeeper</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <name>Project Hades</name>
+    <description>Self-hosted distributed API gateway with adaptive rate limiting</description>
+    <url>https://github.com/DeVangSharma/gatekeeper</url>
+
+    <modules>
+        <module>gatekeeper-common</module>
+        <module>gatekeeper-gateway</module>
+        <module>gatekeeper-analytics</module>
+        <module>gatekeeper-admin</module>
+        <module>gatekeeper-integration-tests</module>
+    </modules>
+
+    <properties>
+        <revision>0.1.0-SNAPSHOT</revision>
+        <java.version>21</java.version>
+        <testcontainers.version>1.20.4</testcontainers.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>${testcontainers.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.devangsharma</groupId>
+                <artifactId>gatekeeper-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>${java.version}</release>
+                    <parameters>true</parameters>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>defaults</flattenMode>
+                    <flattenedPomFilename>.flattened-pom.xml</flattenedPomFilename>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals><goal>flatten</goal></goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals><goal>clean</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/DeVangSharma/gatekeeper.git</connection>
+        <developerConnection>scm:git:git@github.com:DeVangSharma/gatekeeper.git</developerConnection>
+        <url>https://github.com/DeVangSharma/gatekeeper</url>
+    </scm>
+</project>

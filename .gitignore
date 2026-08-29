@@ -1,0 +1,37 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IDE
+.idea/
+*.iml
+*.iws
+.project
+.classpath
+.settings/
+.factorypath
+.vscode/
+*.swp
+*.swo
+*~
+.nbproject/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+*.env.local
+
+# Spring
+*.log
+spring-shell.log
+
+# Flatten plugin
+.flattened-pom.xml
+
+# Docker
+docker/.env

@@ -1,0 +1,30 @@
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      spring:
+        patterns: ["org.springframework*"]
+      kafka:
+        patterns: ["org.apache.kafka*"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/gatekeeper-gateway"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/gatekeeper-analytics"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/gatekeeper-admin"
+    schedule:
+      interval: "monthly"

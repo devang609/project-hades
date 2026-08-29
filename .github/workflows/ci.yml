@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+
+      - name: Build & Unit Tests
+        run: mvn -B verify -pl '!gatekeeper-integration-tests'
+
+      - name: Integration Tests (Testcontainers)
+        run: mvn -B verify -pl gatekeeper-integration-tests -am

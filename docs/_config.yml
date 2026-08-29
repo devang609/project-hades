@@ -1,0 +1,9 @@
+title: Project Hades Docs
+description: Documentation for the Project Hades API Gateway
+remote_theme: just-the-docs/just-the-docs
+url: "https://devangsharma.github.io"
+baseurl: "/gatekeeper"
+aux_links:
+  "GitHub": "https://github.com/DeVangSharma/gatekeeper"
+color_scheme: dark
+search_enabled: true

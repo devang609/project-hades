@@ -1,0 +1,36 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Java sources
+*.java text diff=java
+*.kt text diff=kotlin
+*.groovy text diff=java
+
+# Properties and configs
+*.properties text
+*.yml text
+*.yaml text
+*.xml text
+*.json text
+
+# Scripts
+*.sh text eol=lf
+*.lua text eol=lf
+*.bat text eol=crlf
+
+# Docker
+Dockerfile text
+
+# Documentation
+*.md text diff=markdown
+*.txt text
+
+# Binary
+*.jar binary
+*.class binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
