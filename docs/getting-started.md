@@ -10,13 +10,13 @@ nav_order: 2
 
 - Docker and Docker Compose
 - Java 21 (for development)
-- Maven 3.9+ (wrapper included)
+- Maven (wrapper included, no global install needed)
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/DeVangSharma/gatekeeper.git
-cd gatekeeper
+git clone https://github.com/devang609/project-hades.git
+cd project-hades
 cp docker/.env.example docker/.env
 docker compose -f docker/docker-compose.yml up -d
 ```
@@ -46,10 +46,10 @@ Click "Code" → "Codespaces" → "Create codespace on main". Everything is pre-
 docker compose -f docker/docker-compose.yml up -d redis
 
 # Build all modules
-mvn clean verify
+./mvnw clean verify
 
 # Run the gateway
-mvn spring-boot:run -pl gatekeeper-gateway
+./mvnw spring-boot:run -pl gatekeeper-gateway
 ```
 
 ## Ports
