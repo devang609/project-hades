@@ -19,7 +19,7 @@ jobs:
           cache: maven
 
       - name: Build & Unit Tests
-        run: mvn -B verify -pl '!gatekeeper-integration-tests'
+        run: ./mvnw -B verify -pl '!gatekeeper-integration-tests'
 
       - name: Integration Tests (Testcontainers)
-        run: mvn -B verify -pl gatekeeper-integration-tests -am
+        run: ./mvnw -B verify -pl gatekeeper-integration-tests -am
