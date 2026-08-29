@@ -1,9 +1,11 @@
 title: Project Hades Docs
 description: Documentation for the Project Hades API Gateway
 remote_theme: just-the-docs/just-the-docs
-url: "https://devangsharma.github.io"
-baseurl: "/gatekeeper"
+url: "https://devang609.github.io"
+baseurl: "/project-hades"
 aux_links:
-  "GitHub": "https://github.com/DeVangSharma/gatekeeper"
+  "GitHub": "https://github.com/devang609/project-hades"
 color_scheme: dark
 search_enabled: true
+plugins:
+  - jekyll-remote-theme
